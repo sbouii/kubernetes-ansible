@@ -1,0 +1,48 @@
+
+  - name: Add GPG key
+    apt_key:
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      state: present
+
+  - name: Add kubernetes APT repository  
+    apt_repository:
+      repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"   
+      
+  - name: installing kubeadm and dependencies 
+    apt:
+     name: {{item}}
+     state: installed
+     with_items:
+          - docker.io
+          - kubelet
+          - kubeadm
+          - kubectl
+          - kubernetes-cni
+     update_cache: yes
+
+  - name: stop kubelet service
+    command: service kubelet stop
+
+  - name: start kubelet service
+    command: service kubelet start
+
+  - name: initialize kubeadm master
+    command: kubeadm init 
+
+  - name: install network pod
+    command: kubectl apply -f https://git.io/weave-kube
+
+  - name: clone application repository
+    git:
+      repo: https://github.com/microservices-demo
+      clone: yes
+ 
+  - name: create application namespace
+    command: kubectl create namespace sock-shop
+
+  - name: install application pods 
+    command: kubectl apply -n sock-shop -f "https://github.com/microservices-demo/microservices-demo/blob/master/deploy/kubernetes/complete-demo.yaml?raw=true"
+  - name: create monitoring pods
+    command: kubectl create -f ../files/monitoring
+
+

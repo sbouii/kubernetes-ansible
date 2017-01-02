@@ -1,0 +1,20 @@
+- name: clone kube-mesos framework
+  git: 
+    repo: https://github.com/kubernetes-incubator/kube-mesos-framework
+    clone: yes
+- name: build kubernetes-Mesos
+  command: chdir=kube-mesos-framework make
+
+- name: start etcd 
+
+- name: start the kubernetes-mesos API server
+  command:
+  
+- name: start the controller manager
+  command:
+
+- name: start the scheduler
+  command:
+
+- name: Disown background jobs
+  command: disown -a

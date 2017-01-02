@@ -1,0 +1,5 @@
+- hosts: kb8s-servers
+  sudo: True 
+  tasks:
+  - include: kube-ansible/kubeadm.yml
+  - include: kube-ansible/kubernetes-mesos.yml

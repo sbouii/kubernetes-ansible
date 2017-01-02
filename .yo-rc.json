@@ -1,0 +1,12 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "devoxx-2016"
+    ],
+    "directoryPath": "./",
+    "jwtSecretKey": "e8586e93d2ceb13f0343a197abbc4bb376d28347",
+    "dockerRepositoryName": "sbouii",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default"
+  }
+}
