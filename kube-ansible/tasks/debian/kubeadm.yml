@@ -21,28 +21,17 @@
      update_cache: yes
 
   - name: stop kubelet service
-    command: service kubelet stop
+    service:
+      name: kubelet
+      state: stopped
 
   - name: start kubelet service
-    command: service kubelet start
+      name: kubelet
+      state: started
 
   - name: initialize kubeadm master
     command: kubeadm init 
 
   - name: install network pod
     command: kubectl apply -f https://git.io/weave-kube
-
-  - name: clone application repository
-    git:
-      repo: https://github.com/microservices-demo
-      clone: yes
- 
-  - name: create application namespace
-    command: kubectl create namespace sock-shop
-
-  - name: install application pods 
-    command: kubectl apply -n sock-shop -f "https://github.com/microservices-demo/microservices-demo/blob/master/deploy/kubernetes/complete-demo.yaml?raw=true"
-  - name: create monitoring pods
-    command: kubectl create -f ../files/monitoring
-
 

@@ -13,9 +13,9 @@ Vagrant.configure(2) do |config|
    config.vm.synced_folder "../data", "/vagrant_data" , disabled: true
 
    # Update /etc/hosts 
-   config.hostmanager.enabled = true
-   config.hostmanager.manage_host = true
-   config.hostmanager.include_offline = true
+  # config.hostmanager.enabled = true
+  # config.hostmanager.manage_host = true
+  # config.hostmanager.include_offline = true
 
    config.vm.hostname = "kb8s"
 
@@ -26,7 +26,7 @@ Vagrant.configure(2) do |config|
    end
 
    config.vm.provision :ansible do |ansible|
-    ansible.playbook = 'playbook.yml'
+    ansible.playbook = 'kube-ansible/tasks/main.yml'
     ansible.groups = {
       "kb8s-servers" => ["kb8s"],
       }

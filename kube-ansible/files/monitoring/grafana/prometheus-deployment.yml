@@ -1,0 +1,41 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus:v1.3.0
+        args:
+        - -config.file=/etc/prometheus/prometheus.yml
+        - -alertmanager.url=http://alertmanager:9093
+        - -storage.local.path=/prometheus
+        - -storage.local.retention=24h
+        ports:
+        - name: webui
+          hostPort: 9090
+          containerPort: 9090
+        resources:
+          limits:
+            cpu: 50m
+            memory: 400Mi
+          requests:
+            cpu: 10m
+            memory: 100Mi
+        volumeMounts:
+        - mountPath: /prometheus
+          name: data
+        - mountPath: /etc/prometheus
+          name: config-volume
+      volumes:
+      - name: data
+        emptyDir: {}
+      - name: config-volume
+        configMap:
+          name: prometheus-config

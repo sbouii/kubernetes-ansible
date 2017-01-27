@@ -1,5 +1,22 @@
 - hosts: kb8s-servers
   sudo: True 
   tasks:
-  - include: kube-ansible/kubeadm.yml
-  - include: kube-ansible/kubernetes-mesos.yml
+  - include: validate.yml
+    tags:
+      - kubernetes-setup
+
+  - name: Install kubernetes using kubeadmn
+    include: "{{ ansible_os_family | lower }}/kubeadmn.yml"
+    when: kubelctl_cmd_exists | failed
+    become: yes
+    tags:
+      - kubernetes-setup
+
+  - name: Deploy application
+    include: "{{ ansible_os_family | lower }}/deployment.yml"
+      - kubernetes-config
+
+  - name: Deploy monitoring pods
+    include: "{{ ansible_os_family | lower }}/monitoring_deployment.yml"
+      - kubernetes-config 
+

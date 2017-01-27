@@ -1,0 +1,19 @@
+kind: Service
+de-exporter-ds.yaml
+
+apiVersion: v1
+metadata:
+  annotations:
+    promtheus.io/scrape: 'true'
+  labels:
+    name: prometheus-srv
+  name: prometheus-srv
+spec:
+  selector:
+    app: prometheus
+  type: NodePort
+  ports:
+  - name: prometheus
+    protocol: TCP
+    port: 9090
+    targetPort: 9090
