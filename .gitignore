@@ -1,2 +1,4 @@
 
  .vagrant/machines/default/virtualbox
+.kitchen/
+.kitchen.local.yml

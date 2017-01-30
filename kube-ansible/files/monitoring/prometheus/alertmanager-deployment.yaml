@@ -42,6 +42,6 @@ spec:
           name: alertmanager
       - name: templates-volume
         configMap:
-          name: alertmanager-templates
+          name: ../../../templates/alertmanager-templates
       - name: alertmanager
         emptyDir: {}

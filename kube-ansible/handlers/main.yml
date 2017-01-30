@@ -1,0 +1,8 @@
+- name: stop kubelet service
+  service:
+    name: kubelet
+    state: stopped
+
+- name: deploy network pod
+  command: kubectl apply -f https://git.io/weave-kube
+

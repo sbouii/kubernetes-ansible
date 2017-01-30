@@ -1,14 +1,15 @@
-
+ 
   - name: Add GPG key
     apt_key:
       url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
       state: present
 
-  - name: Add kubernetes APT repository  
-    apt_repository:
-      repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"   
+  - name: Add kubernetes repository  
+      repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+      state: present
+      filename: 'kubernetes'
       
-  - name: installing kubeadm and dependencies 
+  - name: Install kubeadm and dependencies 
     apt:
      name: {{item}}
      state: installed
@@ -20,18 +21,5 @@
           - kubernetes-cni
      update_cache: yes
 
-  - name: stop kubelet service
-    service:
-      name: kubelet
-      state: stopped
-
-  - name: start kubelet service
-      name: kubelet
-      state: started
-
-  - name: initialize kubeadm master
-    command: kubeadm init 
-
-  - name: install network pod
-    command: kubectl apply -f https://git.io/weave-kube
+  
 

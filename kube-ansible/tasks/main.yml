@@ -7,16 +7,34 @@
 
   - name: Install kubernetes using kubeadmn
     include: "{{ ansible_os_family | lower }}/kubeadmn.yml"
-    when: kubelctl_cmd_exists | failed
-    become: yes
+    when: kubeadm_cmd_exists | failed
     tags:
       - kubernetes-setup
+    notify: 
+      - stop kubelet
 
+  - name: start kubelet service
+    service:
+      name: kubelet
+      state: started
+    tags:
+      - kubernetes-setup 
+       
+  - name: Initialize a kubernetes cluster
+    command: kubeadm init
+    when: kubernetes_cluster_exists | failed
+    tags:
+      - kubernetes-setup
+    notify:
+      - deploy network pod
+   
   - name: Deploy application
     include: "{{ ansible_os_family | lower }}/deployment.yml"
+    tags:
       - kubernetes-config
 
   - name: Deploy monitoring pods
     include: "{{ ansible_os_family | lower }}/monitoring_deployment.yml"
+    tags:
       - kubernetes-config 
 
