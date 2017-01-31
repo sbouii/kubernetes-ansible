@@ -15,12 +15,14 @@
   describe "Check Redhat specifications", :if => is_redhat_distro do
 
    include_examples "check required rpm packages"
-   include_examples "check debian_installation"
+   include_examples "check redhat_installation"
 
   describe "Check setup" do
      
-   include_examples "check service "(check service kubelet and docker)
+   include_examples "check service "
 
-   include_examples "check cluster_setup"(all pods are running by typing kubectl get pods --all namespaces)
+   include_examples "check cluster_setup"
 
-   inlude_examples "check cluster_connection" : kubectl get cluster infors"
+   inlude_examples "check cluster_connection and get cluster_informations"
+
+  end
