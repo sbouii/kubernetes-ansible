@@ -1,10 +1,8 @@
 kind: Service
-de-exporter-ds.yaml
-
 apiVersion: v1
 metadata:
   annotations:
-    promtheus.io/scrape: 'true'
+    prometheus.io/scrape: 'true'
   labels:
     name: prometheus-srv
   name: prometheus-srv

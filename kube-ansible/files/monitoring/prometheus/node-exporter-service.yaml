@@ -7,7 +7,6 @@ metadata:
   namespace: monitoring
   labels:
     app: prometheus
-    component: node-exporter
 spec:
   clusterIP: None
   ports:
@@ -16,5 +15,4 @@ spec:
       protocol: TCP
   selector:
     app: prometheus
-    component: node-exporter
   type: ClusterIP

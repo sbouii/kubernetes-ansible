@@ -1,10 +1,6 @@
-  - name: clone application repository
-    git:
-      repo: https://github.com/microservices-demo
-      clone: yes
 
   - name: create application namespace
     command: kubectl create namespace sock-shop
 
   - name: install application pods
-    command: kubectl apply -n sock-shop -f "https://github.com/microservices-demo/microservices-demo/blob/master/deploy/kubernetes/complete-demo.yaml?raw=true"
+    command: kubectl apply -n sock-shop -f ../../files/application
