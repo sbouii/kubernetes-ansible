@@ -1,0 +1,22 @@
+language: python
+python: "2.7"
+env:
+  - ANSIBLE_VERSION=2.0.0.2
+addons:
+  apt:
+    packages:
+      - python-pip
+
+install: 
+  # Install ansible
+  - pip install ansible==$ANSIBLE_VERSION
+  # verify ansible version
+  - ansible --version
+
+script:
+  - export ANSIBLE_ROLES_PATH="../"
+  - ansible-playbook -i test/travis/inventory.ini --syntax-check test/travis/provision.yml
+  - ansible-playbook -i test/travis/inventory.ini --connection=local --sudo 
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications

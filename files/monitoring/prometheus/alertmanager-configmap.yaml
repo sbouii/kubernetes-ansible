@@ -1,3 +1,4 @@
+---
 kind: ConfigMap
 apiVersion: v1
 metadata:
@@ -45,4 +46,4 @@ config.yml: |-
       target_match:
         severity: 'warning'
       equal: ['alertname', 'kubernetes_namespace', '__address__']
-         
+---        

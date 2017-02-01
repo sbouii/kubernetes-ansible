@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -95,3 +96,4 @@ prometheus.yml: |
             target_label: kubernetes_pod_name
           - action: labelmap
             regex: __meta_kubernetes_pod_label_(.+)
+---
