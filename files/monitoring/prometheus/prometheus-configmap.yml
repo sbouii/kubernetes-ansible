@@ -37,7 +37,7 @@ prometheus.yml: |
             regex: '(.*):10250'
             replacement: '${1}:10255'
             target_label: __address__
-     - job_name: 'kubernetes-endpoints'
+    - job_name: 'kubernetes-endpoints'
        kubernetes_sd_configs:
           - role: endpoints
        relabel_configs:

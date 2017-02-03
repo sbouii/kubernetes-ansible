@@ -1,0 +1,34 @@
+galaxy_info:
+  author: Mariem Sbouii
+  description: Set up a kubeadm cluster on several GNU/Linux servers and monitor
+  its componments.
+  license: MIT
+  min_ansible_version: 2.0
+  
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+    - name: Debian
+      versions:
+        - jessie
+    - name: EL
+      versions:
+        - 7
+    # - name: Fedora
+    #   versions:
+    #     - all
+    # - name: opensuse
+    #   versions:
+    #     - all
+    # - name: SLES
+    #   versions:
+    #     - all
+
+  galaxy_tags:
+    - monitoring
+    - system
+    - development
+    - docker
+
+  dependencies: []
