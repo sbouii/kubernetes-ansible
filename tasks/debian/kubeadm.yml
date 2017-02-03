@@ -20,6 +20,5 @@
           - kubectl
           - kubernetes-cni
      update_cache: yes
-
-  
-
+   - name:  Schedule pods on the master
+     command: kubectl taint nodes --all dedicated-
