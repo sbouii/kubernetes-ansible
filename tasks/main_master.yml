@@ -10,15 +10,6 @@
     when: kubeadm_cmd_exists | failed
     tags:
       - kubernetes-setup
-    notify: 
-      - stop kubelet
-
-  - name: start kubelet service
-    service:
-      name: kubelet
-      state: started
-    tags:
-      - kubernetes-setup 
        
   - name: Initialize a kubernetes cluster
     command: kubeadm init

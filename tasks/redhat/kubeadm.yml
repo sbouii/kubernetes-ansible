@@ -1,0 +1,32 @@
+  - name: Add kubernetes repository 
+    yum_repository:
+      name: Kubernetes
+      description: kubernetes YUM repos
+      baseurl: http://yum.kubernetes.io/repos/kubernetes-el7-x86_64
+      gpgcheck: yes
+      enabled: yes
+      repo_gpgcheck: yes 
+      gpgkey:
+         - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+         - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+  - name: Install kubeadm and dependencies
+    yum:
+     name: {{item}}
+     state: installed 
+     with_items:
+          - docker.io
+          - kubelet
+          - kubeadm
+          - kubectl
+          - kubernetes-cni
+     update_cache: yes
+     notify:
+       - enable and start docker service
+       - enable and start kubelet service
+# pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
+
+#   - name:  Schedule pods on the master
+#     command: kubectl taint nodes --all dedicated-
+
+

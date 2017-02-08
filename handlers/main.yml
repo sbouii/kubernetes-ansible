@@ -2,6 +2,16 @@
   service:
     name: kubelet
     state: stopped
+- name: enable and start docker service
+  service:
+    name: docker
+    enabled: yes
+    state: started
+- name: enable and start kubelet service
+  service:
+    name: kubelet
+    enabled: yes
+    state: started
 
 - name: deploy network pod
   command: kubectl apply -f https://git.io/weave-kube
