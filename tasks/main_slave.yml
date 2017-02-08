@@ -1,0 +1,25 @@
+
+- hosts: kb8s_slave
+  sudo: True
+  tasks:
+  - include: validate.yml
+    tags:
+      - kubernetes-setup
+
+  - name: Install kubernetes using kubeadmn
+    include: "{{ ansible_os_family | lower }}/kubeadm.yml"
+    when: kubeadm_cmd_exists | failed
+    tags:
+      - kubernetes-setup
+    notify:
+      - stop kubelet
+
+  - name: start kubelet service
+    service:
+      name: kubelet
+      state: started
+    tags:
+      - kubernetes-setup
+
+  - name: join the node to the cluster
+    command: kubeadm join --token={{ token }} {{ master_ip }}

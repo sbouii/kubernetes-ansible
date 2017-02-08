@@ -1,4 +1,4 @@
-- hosts: kb8s-servers
+- hosts: kb8s_master
   sudo: True 
   tasks:
   - include: validate.yml
@@ -6,7 +6,7 @@
       - kubernetes-setup
 
   - name: Install kubernetes using kubeadmn
-    include: "{{ ansible_os_family | lower }}/kubeadmn.yml"
+    include: "{{ ansible_os_family | lower }}/kubeadm.yml"
     when: kubeadm_cmd_exists | failed
     tags:
       - kubernetes-setup
@@ -29,12 +29,12 @@
       - deploy network pod
    
   - name: Deploy application
-    include: "{{ ansible_os_family | lower }}/deployment.yml"
+    include: "common/deployment.yml"
     tags:
       - kubernetes-config
 
   - name: Deploy monitoring pods
-    include: "{{ ansible_os_family | lower }}/monitoring_deployment.yml"
+    include: "common/monitoring_deployment.yml"
     tags:
       - kubernetes-config 
 
