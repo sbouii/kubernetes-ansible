@@ -53,13 +53,6 @@
        it { should be_listening }
      end
    end
-   [' gcr.io/google_containers/etcd-amd64:3.0.14-kubeadm', 'gcr.io/google_containers/kube-apiserver-amd64:v1.5.1', 'gcr.io/google_containers/kube-controller-manager-amd64:v1.5.1', 'gcr.io/google_containers/kube-scheduler-amd64:v1.5.1', 'gcr.io/google_containers/kube-scheduler-amd64:v1.5.1'] do |kubernetes_docker_images|
-
-     describe docker_image('kubernetes_docker_images') do 
-       it { should exist }
-       its(['Architecture']) { should eq 'amd64' }
-     end
-   end
    
    describe command('kubectl get pods --all-namespaces') do 
      its(:stdout) { should eq 0 }

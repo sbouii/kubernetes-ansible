@@ -24,7 +24,7 @@
        end
          
        describe command("[ $(apt-cache policy 'installed_packages' | grep 'Installed' | \
-                    awk '{print $NF}') = $(apt-cache policy docker-engine | \
+                    awk '{print $NF}') = $(apt-cache policy 'installed_packages' | \
                     grep 'Candidate' | awk '{print $NF}') ]") do
          its(:exit_status) { should eq 0 }
        end
