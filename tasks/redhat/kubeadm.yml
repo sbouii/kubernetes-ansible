@@ -29,4 +29,3 @@
 #   - name:  Schedule pods on the master
 #     command: kubectl taint nodes --all dedicated-
 
-
