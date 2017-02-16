@@ -1,7 +1,6 @@
 galaxy_info:
   author: Mariem Sbouii
-  description: Set up a kubeadm cluster on several GNU/Linux servers and monitor
-  its componments.
+  description: Set up a kubeadm cluster on several GNU/Linux servers and monitor its componments.
   license: MIT
   min_ansible_version: 2.0
   
