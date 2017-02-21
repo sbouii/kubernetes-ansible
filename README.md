@@ -31,6 +31,9 @@ More infos in the role's metadata file.
 None.
 
 ##Role variables
+
+- **`master-ip`** - the ip address of the kubernetes master
+- **`token`** - the authentication token used to join a node to the kubernetes cluster
 ##Available tags
 
 - **`kubernetes-setup`** - Specify this tag to perform the kubernetes cluster setup
