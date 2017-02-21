@@ -26,6 +26,10 @@ this is an ansible role to set up a kubernetes cluster and monitor its componmen
 
 More infos in the role's metadata file.
 
+### Dependencies
+
+None.
+
 ##Role variables
 ##Available tags
 
