@@ -27,8 +27,10 @@ this is an ansible role to set up a kubernetes cluster and monitor its componmen
 More infos in the role's metadata file.
 
 ##Role variables
-
 ##Available tags
+
+- **`kubernetes-setup`** - Specify this tag to perform the kubernetes cluster setup
+- **`kubernetes-config`** - Specify this tag for deploying application and monitoring pods 
 
 ##Usage
 In order to set up a kubernetes cluster across your plateform, start by checking out the role from Ansible galaxy:
