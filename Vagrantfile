@@ -31,6 +31,7 @@ Vagrant.configure(2) do |config|
       "kb8s-servers" => ["kb8s_master"],
       }
     end
+
     config.vm.define "kb8s_slave" do |cfg|
      cfg.vm.network "private_network", ip: "192.168.33.11"
      cfg.vm.hostname = "kb8s_slave"
@@ -39,6 +40,7 @@ Vagrant.configure(2) do |config|
       vb.name = 'kb8s_slave'
       vb.memory = "950"
      end
+   # hostname -i must return a routable address on second (non-NATed) network interface
      cfg.vm.provision :shell, :inline => "sed 's/127.0.0.1.*kube-master/192.168.33.11 kb8s_slave/' -i /etc/hosts"
      cfg.vm.provision :ansible do |ansible|
       ansible.playbook = 'tasks/main_slave.yml'

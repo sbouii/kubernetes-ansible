@@ -1,4 +1,4 @@
-  
+ 
  shared_examples "check service" do
     
      describe file('/var/run/docker.sock') do
@@ -21,7 +21,7 @@
      end 
 
      describe file('/etc/systemd/system/kubelet.service.d') do 
-        it { should be_file }
+        it { should be_directory }
      end
 
      describe service('kubelet') do
@@ -48,15 +48,15 @@
      end
    end
 
-   ['6443', '8080', '9898', '10250', '10251', '10252', '2379'].each do |kubernetes_allocated_ports|
+   ['10250', '10251', '10252'].each do |kubernetes_allocated_ports|
      describe port(kubernetes_allocated_ports) do
        it { should be_listening }
      end
    end
-   
+   ['', '', '', '']
    describe command('kubectl get pods --all-namespaces') do 
      its(:stdout) { should eq 0 }
-     its(:stdout) { should contain('running') }
+     its(:stdout) { should contain('running').after('') }
    end
 
  shared_examples "check cluster_connection and get cluster_informations" do

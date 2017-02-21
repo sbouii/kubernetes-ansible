@@ -1,4 +1,4 @@
-  
+ 
  shared_examples "check required deb packages" do 
    ['lxc-docker', 'docker.io'].each do |package_depends|
      describe package(package_depends) do 
@@ -18,7 +18,7 @@
  end
  
  shared_examples "check debian installation" do
-     ['kubectl', 'kubeadm', 'kubelet'] do |installed_packages|
+     ['kubectl', 'kubeadm', 'kubelet'].each do |installed_packages|
        describe package('installed_packages') do
          it { should be_installed }
        end
@@ -29,7 +29,7 @@
          its(:exit_status) { should eq 0 }
        end
      end
-     ['/usr/bin/kubectl', '/usr/bin/kubeadm', '/usr/bin/kubelet'] do |installed_packages_files|
+     ['/usr/bin/kubectl', '/usr/bin/kubeadm', '/usr/bin/kubelet'].each do |installed_packages_files|
 
       describe file('installed_packages_files') do
        it { should be_file }
