@@ -19,7 +19,9 @@ this is an ansible role to set up a kubernetes cluster and monitor its componmen
 
 - **Virtualbox**
 
-##Supported Systems
+
+## Supported Systems
+
 - Debian
 - Ubuntu
 - Centos
@@ -30,16 +32,18 @@ More infos in the role's metadata file.
 
 None.
 
-##Role variables
+## Role variables
 
 - **`master-ip`** - the ip address of the kubernetes master
 - **`token`** - the authentication token used to join a node to the kubernetes cluster
-##Available tags
+
+## Available tags
 
 - **`kubernetes-setup`** - Specify this tag to perform the kubernetes cluster setup
 - **`kubernetes-config`** - Specify this tag for deploying application and monitoring pods 
 
-##Usage
+## Usage
+
 In order to set up a kubernetes cluster across your plateform, start by checking out the role from Ansible galaxy:
 ```bash
 ansible-galaxy install sbouii.kubernetes_monitoring
@@ -53,8 +57,10 @@ Finally call the role within you Ansible playbook:
     - kubernetes_monitoring
 ```
 
-##Development and Testing
-###Run acceptance tests
+## Development and Testing
+
+### Run acceptance tests
+
 For runing Acceptance/Integration tests against your role , we use the tool `test-kitchen`.All written acceptance tests are in the **./test/integration/** directory.
 
 The `.kitchen.yml` file describes the testing configuration and the list of suite tests to run. By default, the instances will be converged with Ansible and ran in Vagrant virtual machines.
@@ -71,6 +77,6 @@ To run the default test suite, for instance, on a Ubuntu Trusty platform, run th
 
     $ kitchen test default-ubuntu-1404-x64
 
-##Author information
+## Author information
 
 This role was created by [Mariem Sboui](https://www.linkedin.com/in/mariem-sboui-76906711b) ,a DevOps enthusiast.
