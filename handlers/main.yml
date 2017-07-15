@@ -3,9 +3,9 @@
     name: kubelet
     state: stopped
 - name: start kubelet service
-    service:
-     name: kubelet
-     state: started
+  service:
+    name: kubelet
+    state: started
 - name: enable and start docker service
   service:
     name: docker
