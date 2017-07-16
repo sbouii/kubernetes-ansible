@@ -4,7 +4,7 @@
 
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-sbouii.kubernetes_monitoring-blue.svg)](https://galaxy.ansible.com/sbouii/kubernetes_monitoring/)
 
-this is an ansible role to set up a kubernetes cluster and monitor its componments.
+This is an ansible role to set up a kubernetes cluster and monitor its componments.
 
 
 ## Requirements
