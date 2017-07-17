@@ -1,6 +1,4 @@
-- hosts: kb8s_master
-  sudo: True 
-  tasks:
+
   - include: validate.yml
     tags:
       - kubernetes-setup
@@ -28,4 +26,3 @@
     include: "common/monitoring_deployment.yml"
     tags:
       - kubernetes-config 
-
