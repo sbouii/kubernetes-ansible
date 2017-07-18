@@ -1,0 +1,4 @@
+- hosts: kb8s_master 
+  sudo: yes
+  roles:
+    - kubernetes_ansible 
