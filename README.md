@@ -43,7 +43,7 @@ None.
 
 ## Available tags
 
-- **`kubernetes-setup`** - Specify this tag to perform the kubernetes cluster setup
+- **`kubernetes-setup`** - Specify this tag to perform the kubernetes master setup
 - **`kubernetes-config`** - Specify this tag for deploying application and monitoring pods 
 
 ## Usage
@@ -59,7 +59,7 @@ Finally call the role within you Ansible playbook:
 - hosts: localhost
   sudo: yes
   roles:
-    - kubernetes_monitoring
+    - kubernetes_ansible
 ```
 
 ## Development and Testing
