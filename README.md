@@ -2,7 +2,7 @@
 
 ## Description
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-sbouii.kubernetes_monitoring-blue.svg)](https://galaxy.ansible.com/sbouii/kubernetes_monitoring/)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-sbouii.kubernetes_ansible-blue.svg)](https://galaxy.ansible.com/sbouii/kubernetes_ansible/)
 
 This is an ansible role to set up a kubernetes cluster and monitor its componments on several GNU/Linux systems.
 
