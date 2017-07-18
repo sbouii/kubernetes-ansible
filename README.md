@@ -55,13 +55,18 @@ ansible-galaxy install sbouii.kubernetes_monitoring
 Finally call the role within you Ansible playbook:
 ```yaml
 ---
-- hosts: all
+- hosts: localhost
+  sudo: yes
   roles:
     - kubernetes_monitoring
 ```
 
 ## Development and Testing
+### Test with Vagrant
+For quick tests, you can spin up a Debian VM using Vagrant. You maybe need to adapt the Vagrantfile to suit your environment (IP addresses, etc).
 
+    $ vagrant up
+  
 ### Run acceptance tests
 
 For runing Acceptance/Integration tests against your role , we use the tool `test-kitchen`.All written acceptance tests are in the **./test/integration/** directory.
