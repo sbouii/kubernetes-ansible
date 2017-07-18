@@ -37,8 +37,9 @@ None.
 
 ## Role variables
 
-- **`master-ip`** - the ip address of the kubernetes master
-- **`token`** - the authentication token used to join a node to the kubernetes cluster
+- **`kubernetes_debian_repositoy_filename`** - 
+- **`kubernetes_redhat_repositoy_name`** - 
+- **`kubernetes_redhat_repositoy_description`** - 
 
 ## Available tags
 
