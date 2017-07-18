@@ -49,7 +49,7 @@ None.
 
 In order to set up a kubernetes cluster across your plateform, start by checking out the role from Ansible galaxy:
 ```bash
-ansible-galaxy install sbouii.kubernetes_monitoring
+ansible-galaxy install sbouii.kubernetes_ansible
 ```
 
 Finally call the role within you Ansible playbook:
