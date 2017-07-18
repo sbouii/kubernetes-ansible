@@ -59,7 +59,7 @@
      its(:stdout) { should contain('running').after('') }
    end
 
- shared_examples "check cluster_connection and get cluster_informations" do
+ shared_examples "check cluster_connection and cluster_informations access" do
    
    describe command('curl http://127.0.0.1:8080/version') do
      its(:stdout) { should eq 0 }

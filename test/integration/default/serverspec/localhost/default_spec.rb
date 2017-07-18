@@ -23,6 +23,6 @@
 
    include_examples "check cluster_setup"
 
-   inlude_examples "check cluster_connection and get cluster_informations"
+   inlude_examples "check cluster_connection and  cluster_informations access"
 
   end

@@ -1,3 +1,4 @@
 ---
-master_ip: 192.168.33.10
-token: TOKEN_MASTER
+kubernetes_debian_repositoy_filename: kubernetes
+kubernetes_redhat_repositoy_name: kubernetes
+kubernetes_redhat_repositoy_description: YUM repository

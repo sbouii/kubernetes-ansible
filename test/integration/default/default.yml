@@ -1,3 +1,3 @@
 - hosts: localhost
   roles:
-    - role: kubernetes-ansible
+    - role: kubernetes_ansible
