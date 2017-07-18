@@ -2,13 +2,13 @@
 
 ## Description
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-sbouii.kubernetes_monitoring-blue.svg)](https://galaxy.ansible.com/sbouii/kubernetes_monitoring/)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-sbouii.kubernetes_ansible-blue.svg)](https://galaxy.ansible.com/sbouii/kubernetes_ansible/)
 
-This is an ansible role to set up a kubernetes cluster and monitor its componments.
+This is an ansible role to set up a kubernetes cluster and monitor its componments on several GNU/Linux systems.
 
 Although there are many ansible roles for installing kubernetes even production-ready ones , this version besides automating the installation of kubernetes using  **[Kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)** and deploying Grafana and Prometheus pods for monitoring the componments of the kubernetes cluster and the application running on it,
-it uses the infrastructure tool **[KitchenCi](http://kitchen.ci/)** to verify the cluster is well setup and configured as expected.
-For testing purposes I have deployed a multi-architecture application to the kubernetes cluster .
+it uses the infrastructure testing tool **[KitchenCi](http://kitchen.ci/)** to verify if the cluster is well setup and configured as expected.
+For testing purposes I have deployed a multi-architecture application .
 
 ## Requirements
 
@@ -37,31 +37,37 @@ None.
 
 ## Role variables
 
-- **`master-ip`** - the ip address of the kubernetes master
-- **`token`** - the authentication token used to join a node to the kubernetes cluster
+- **`kubernetes_debian_repositoy_filename`** - 
+- **`kubernetes_redhat_repositoy_name`** - 
+- **`kubernetes_redhat_repositoy_description`** - 
 
 ## Available tags
 
-- **`kubernetes-setup`** - Specify this tag to perform the kubernetes cluster setup
+- **`kubernetes-setup`** - Specify this tag to perform the kubernetes master setup
 - **`kubernetes-config`** - Specify this tag for deploying application and monitoring pods 
 
 ## Usage
 
 In order to set up a kubernetes cluster across your plateform, start by checking out the role from Ansible galaxy:
 ```bash
-ansible-galaxy install sbouii.kubernetes_monitoring
+ansible-galaxy install sbouii.kubernetes_ansible
 ```
 
 Finally call the role within you Ansible playbook:
 ```yaml
 ---
-- hosts: all
+- hosts: localhost
+  sudo: yes
   roles:
-    - kubernetes_monitoring
+    - kubernetes_ansible
 ```
 
 ## Development and Testing
+### Test with Vagrant
+For quick tests, you can spin up a Debian VM using Vagrant. You maybe need to adapt the Vagrantfile to suit your environment (IP addresses, etc).
 
+    $ vagrant up
+  
 ### Run acceptance tests
 
 For runing Acceptance/Integration tests against your role , we use the tool `test-kitchen`.All written acceptance tests are in the **./test/integration/** directory.
@@ -82,4 +88,4 @@ To run the default test suite, for instance, on a Ubuntu Trusty platform, run th
 
 ## Author information
 
-This role was created by [Mariem Sboui](https://www.linkedin.com/in/mariem-sboui-76906711b) ,a DevOps enthusiast.
+This role was created by [Mariem Sbouii](https://www.linkedin.com/in/mariem-sboui-76906711b) ,a DevOps enthusiast.
