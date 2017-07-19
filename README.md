@@ -49,7 +49,7 @@ None.
 
 ## Usage
 
-In order to set up a kubernetes cluster across your plateform, start by checking out the role from Ansible galaxy:
+In order to set up a kubernetes master across your plateform, start by checking out the role from Ansible galaxy:
 ```bash
 ansible-galaxy install sbouii.kubernetes_ansible
 ```
