@@ -4,7 +4,7 @@
       - kubernetes-setup
 
   - name: Install kubernetes using kubeadmn
-    include: "{{ ansible_os_family | lower }}/kubeadm.yml"
+    include: "{{ ansible_os_family | lower }}/main.yml"
     when: kubeadm_cmd_exists | failed
     tags:
       - kubernetes-setup

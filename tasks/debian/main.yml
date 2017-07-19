@@ -1,15 +1,15 @@
  
-  - name: Add GPG key
+  - name: Debian | Add GPG key
     apt_key:
       url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
       state: present
 
-  - name: Add kubernetes repository  
+  - name: Debian | Add kubernetes repository  
       repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
       state: present
       filename: {{ kubernetes_debian_repositoy_filename }}
       
-  - name: Install kubeadm and dependencies 
+  - name: Debian | Install kubeadm and dependencies 
     apt:
      name: {{item}}
      state: installed
@@ -25,5 +25,5 @@
        - start kubelet service
 # pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
 
-  - name:  Schedule pods on the master
+  - name: Debian | Schedule pods on the master
     command: kubectl taint nodes --all dedicated-
