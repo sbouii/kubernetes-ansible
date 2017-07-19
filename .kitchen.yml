@@ -22,7 +22,7 @@ platforms:
           - [ 'private_network', { ip: '192.168.33.111' } ]
   - name: 'centos_7_x64'
     driver_config:
-       box: 'abessifi/centos-7.1-ansible'
+       box: 'bento/centos-7.2'
        network:
           - [ 'private_network', { ip: '192.168.33.112' } ]
  
