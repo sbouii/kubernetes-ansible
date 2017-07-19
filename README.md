@@ -37,9 +37,9 @@ None.
 
 ## Role variables
 
-- **`kubernetes_debian_repositoy_filename`** - 
-- **`kubernetes_redhat_repositoy_name`** - 
-- **`kubernetes_redhat_repositoy_description`** - 
+- **`kubernetes_debian_repositoy_filename`** - the filename of the kubernetes debian repository 
+- **`kubernetes_redhat_repositoy_name`** - a unique kubernetes redhat repository ID
+- **`kubernetes_redhat_repositoy_description`** - a description for the kubernetes redhat repository
 
 ## Available tags
 
