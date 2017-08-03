@@ -10,11 +10,6 @@ Vagrant.configure(2) do |config|
    # Disable the default /vagrant share
    config.vm.synced_folder "../data", "/vagrant_data" , disabled: true
 
-   # Update /etc/hosts 
-   config.hostmanager.enabled = true
-   config.hostmanager.manage_host = true
-   config.hostmanager.include_offline = true
-
    config.vm.define "kb8s_master" do |cfg|
     cfg.vm.network "private_network", ip: "192.168.33.101"
     cfg.vm.hostname = "kb8s_master"    
