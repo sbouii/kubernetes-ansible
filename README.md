@@ -5,10 +5,10 @@
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-sbouii.kubernetes_ansible-blue.svg)](https://galaxy.ansible.com/sbouii/kubernetes_ansible/)  
 [![Build Status](https://travis-ci.org/sbouii/kubernetes_ansible.svg?branch=master)](https://travis-ci.org/sbouii/kubernetes_ansible)
 
-This is an ansible role to set up a kubernetes cluster and monitor its componments on several GNU/Linux systems.
+This is an ansible role to set up a kubernetes master and monitor its componments on several GNU/Linux systems.
 
-Although there are many ansible roles for installing kubernetes even production-ready ones , this version besides automating the installation of kubernetes using  **[Kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)** and deploying Grafana and Prometheus pods for monitoring the componments of the kubernetes cluster and the application running on it,
-it uses the infrastructure testing tool **[KitchenCi](http://kitchen.ci/)** to verify if the cluster is well setup and configured as expected.
+Although there are many ansible roles for installing kubernetes even production-ready ones , this version is mine , created for specific need.Besides automating the installation of kubernetes using  **[Kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)** and deploying Grafana and Prometheus pods for monitoring the componments of the kubernetes master and the application running on it,
+it uses the infrastructure testing tool **[KitchenCi](http://kitchen.ci/)** to verify if the master is well setup and configured as expected.
 For testing purposes I have deployed a multi-architecture application .
 
 ## Requirements
@@ -49,7 +49,7 @@ None.
 
 ## Usage
 
-In order to set up a kubernetes cluster across your plateform, start by checking out the role from Ansible galaxy:
+In order to set up a kubernetes master across your plateform, start by checking out the role from Ansible galaxy:
 ```bash
 ansible-galaxy install sbouii.kubernetes_ansible
 ```

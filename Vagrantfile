@@ -10,7 +10,11 @@ Vagrant.configure(2) do |config|
    # Disable the default /vagrant share
    config.vm.synced_folder "../data", "/vagrant_data" , disabled: true
 
+<<<<<<< HEAD
    config.vm.define "kb8s-master" do |cfg|
+=======
+   config.vm.define "kb8s_master" do |cfg|
+>>>>>>> 46f8ae59f1fd1b418644c061e01e32165c34931b
     cfg.vm.network "private_network", ip: "192.168.33.101"
     cfg.vm.hostname = "kb8s-master"    
     cfg.vm.provider "virtualbox" do |vb|
