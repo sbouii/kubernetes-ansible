@@ -1,29 +1,33 @@
- 
+  - name : Install dependencies
+    apt: 
+     name: apt-transport-https
+     state: installed
+
   - name: Debian | Add GPG key
     apt_key:
       url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
       state: present
 
-  - name: Debian | Add kubernetes repository  
+  - name: Debian | Add kubernetes repository
+    apt_repository:  
       repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
       state: present
-      filename: {{ kubernetes_debian_repositoy_filename }}
+      filename: "{{ kubernetes_debian_repositoy_filename }}"
       
   - name: Debian | Install kubeadm and dependencies 
     apt:
-     name: {{item}}
+     name: "{{ item }}"
      state: installed
-     with_items:
-          - docker.io
-          - kubelet
-          - kubeadm
-          - kubectl
-          - kubernetes-cni
      update_cache: yes
-     notify: 
-       - stop kubelet service
-       - start kubelet service
+    with_items:
+      - kubelet
+      - kubeadm
+      - kubectl
+      - kubernetes-cni
+    notify: 
+      - stop kubelet service
+      - start kubelet service
 # pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
 
-  - name: Debian | Schedule pods on the master
-    command: kubectl taint nodes --all dedicated-
+#  - name: Debian | Schedule pods on the master
+#    command: kubectl taint nodes --all dedicated-

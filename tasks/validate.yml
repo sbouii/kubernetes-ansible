@@ -1,20 +1,18 @@
 - name: Check whether kubeadm is already installed
   shell: "command --skip-preflight-checks kubeadm init "
-  ignore-errors: True
+  ignore_errors: True
   register: kubeadm_cmd_exists
   changed_when: false
  
 - name: Check whether kubernetes cluster exists 
-  shell: "command kubectl cluster-info"
-  ignore-errors: True
+  shell: "command kubeadm init "
+  ignore_errors: True
   register: kubernetes_cluster_exists
   changed_when: false
 
 - debug:
-    msg: 'It seems that kubeadm is already exists'
-   when: kubeadm_cmd_exists.rc == 0
+    msg: 'It seems that kubeadm already exists'
+  when: kubeadm_cmd_exists.rc == 0
 - debug:
-    msg: 'It seems that a kubernetes cluster is already exists'
+    msg: 'It seems that a kubernetes cluster already exists'
   when: kubernetes_cluster_exists.rc == 0
-
-

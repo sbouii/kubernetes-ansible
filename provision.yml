@@ -1,4 +1,5 @@
-- hosts: kb8s_master 
+- hosts: kb8s-master 
   sudo: yes
   roles:
+    - abessifi.docker
     - kubernetes_ansible 
