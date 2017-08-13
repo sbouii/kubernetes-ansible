@@ -9,14 +9,19 @@
       - kubernetes-setup
        
   - name: Initialize a kubernetes cluster
-    command: kubeadm init --skip-preflight-checks
+    command: kubeadm init
     when: kubernetes_cluster_exists | failed
     tags:
       - kubernetes-setup
 # pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
 
   - name: Debian | Schedule pods on the master
-     command: kubectl taint nodes --all dedicated- 
+    command: kubectl taint nodes --all dedicated-
+    tags:
+      - kubernetes-setup
+
+  - name: deploy network pod
+    command: kubectl apply -f https://git.io/weave-kube
 
   - name: Deploy monitoring pods
     include: "common/monitoring_deployment.yml"

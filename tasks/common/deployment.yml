@@ -1,6 +1,0 @@
-
-  - name: create application namespace
-    command: kubectl create namespace sock-shop
-
-  - name: install application pods
-    command: kubectl apply -n sock-shop -f ../../files/application

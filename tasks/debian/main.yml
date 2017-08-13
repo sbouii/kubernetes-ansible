@@ -27,7 +27,13 @@
     notify: 
       - stop kubelet service
       - start kubelet service
-# pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
-
-#  - name: Debian | Schedule pods on the master
-#    command: kubectl taint nodes --all dedicated-
+  - name: Modify variables in init file
+    lineinfile:
+    dest: /etc/default/grup
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet'
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory"'
+    state: present 
+    notify:
+      - update-grub2
+  - name: reboot the Debian Jessie machine
+    command: reboot   
