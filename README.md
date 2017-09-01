@@ -17,7 +17,7 @@ For testing purposes I have deployed a multi-architecture application .
 
 - **Python 2.7** or higher
 
-- **Ansible 2.0** or higher (can be easily installed via pip. E.g: sudo pip install ansible==2.0.0.2)
+- **Ansible 2.2** or higher 
 
 - **[Vagrant](https://www.vagrantup.com/) 1.7** or higher 
 
