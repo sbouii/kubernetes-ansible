@@ -60,7 +60,7 @@ Finally call the role within you Ansible playbook:
 - hosts: localhost
   sudo: yes
   roles:
-    - kubernetes
+    - sbouii.kubernetes
 ```
 
 ## Development and Testing
