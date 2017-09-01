@@ -51,7 +51,7 @@ None.
 
 In order to set up a kubernetes master across your plateform, start by checking out the role from Ansible galaxy:
 ```bash
-ansible-galaxy install sbouii.kubernetes_ansible
+ansible-galaxy install sbouii.kubernetes
 ```
 
 Finally call the role within you Ansible playbook:
@@ -60,7 +60,7 @@ Finally call the role within you Ansible playbook:
 - hosts: localhost
   sudo: yes
   roles:
-    - kubernetes_ansible
+    - kubernetes
 ```
 
 ## Development and Testing
