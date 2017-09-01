@@ -1,4 +1,4 @@
-# kubernetes_ansible
+# kubernetes-ansible
 
 ## Description
 
