@@ -2,4 +2,4 @@
   sudo: yes
   roles:
     - abessifi.docker
-    - kubernetes_ansible 
+    - kubernetes-ansible 
