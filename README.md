@@ -20,7 +20,7 @@ it uses the infrastructure testing tool **[KitchenCi](http://kitchen.ci/)** to v
 
 - **[Vagrant](https://www.vagrantup.com/) 1.7** or higher 
 
-- **Virtualbox**
+- **Virtualbox 5.1** or higher
 
 
 ## Supported Systems
