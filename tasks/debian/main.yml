@@ -34,6 +34,6 @@
     line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory"'
     state: present 
     notify:
-      - update-grub2
+      - update grub
   - name: reboot the Debian Jessie machine
     command: reboot   
