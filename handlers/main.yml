@@ -12,6 +12,8 @@
     name: docker
     enabled: yes
     state: started
-    
+- name: update grub
+  shell: update-grub2
+  
 - name: deploy network pod
   command: kubectl apply -f https://git.io/weave-kube
