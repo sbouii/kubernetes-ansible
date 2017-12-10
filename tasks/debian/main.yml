@@ -38,4 +38,7 @@
       - update grub
       
   - name: disable swap
-    shell: swapoff -a  
+    shell: swapoff -a
+    notify:
+       - reload systemd
+       - restart kubelet
