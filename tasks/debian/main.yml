@@ -38,11 +38,4 @@
       - update grub
       
   - name: disable swap
-    lineinfile:
-      dest: /etc/fstab
-      regexp: '.*\\bif\\b.*'
-      state: absent
-      create: yes
-      
-  - name: reboot the Debian Jessie machine
-    command: reboot   
+    shell: swapoff -a  
