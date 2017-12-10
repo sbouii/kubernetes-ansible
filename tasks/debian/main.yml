@@ -39,9 +39,8 @@
   - name: disable swap
     lineinfile:
       dest: /etc/fstab
-      regexp: '^UUID=b031fa1b-f380-4948-a8c5-2d01310a8a9e none            swap'
-      line: '#UUID=b031fa1b-f380-4948-a8c5-2d01310a8a9e none            swap'
-      state: present
+      regexp: '^(.*?(\bswap\b)[^$]*)$'
+      state: absent
       
   - name: reboot the Debian Jessie machine
     command: reboot   
