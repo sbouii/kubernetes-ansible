@@ -41,4 +41,4 @@
     shell: swapoff -a
     notify:
        - reload systemd
-       - restart kubelet
+       - restart kubelet service 
