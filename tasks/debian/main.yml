@@ -38,7 +38,7 @@
   - name: disable swap
     lineinfile:
       dest: /etc/fstab
-      regexp: '^(.*?(\bswap\b)[^$]*)$'
+      regexp: '.*\\bif\\b.*'
       state: absent
       
   - name: reboot the Debian Jessie machine
