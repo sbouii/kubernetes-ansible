@@ -32,7 +32,8 @@
      dest: /etc/default/grup
      regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet'
      line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory"'
-     state: present 
+     state: present
+     create: yes
     notify:
       - update grub
       
@@ -41,6 +42,7 @@
       dest: /etc/fstab
       regexp: '.*\\bif\\b.*'
       state: absent
+      create: yes
       
   - name: reboot the Debian Jessie machine
     command: reboot   
