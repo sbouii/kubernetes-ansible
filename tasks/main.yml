@@ -13,6 +13,13 @@
     when: kubernetes_cluster_exists | failed
     tags:
       - kubernetes-setup
+ -  name: make kubectl work for your non-root user
+    command: "{{ item }}"
+    with_items:
+    - mkdir -p $HOME/.kube
+    - cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    - chown $(id -u):$(id -g) $HOME/.kube/config
+    - export KUBECONFIG=/etc/kubernetes/admin.conf
 # pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
 
   - name: Debian | Schedule pods on the master
