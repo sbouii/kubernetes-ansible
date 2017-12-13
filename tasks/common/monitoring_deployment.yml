@@ -1,5 +1,5 @@
   - name: create prometheus monitoring pods
-    command: kubectl create -f ../../files/monitoring/prometheus
+    command: kubectl --kubeconfig ./admin.conf create -f ../../files/monitoring/prometheus
 
   - name: create grafana monitoring pods
-    command: kubectl create -f ../../files/monitoring/grafana
+    command: kubectl --kubeconfig ./admin.conf create -f ../../files/monitoring/grafana
