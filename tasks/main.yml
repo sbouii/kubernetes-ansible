@@ -14,10 +14,11 @@
     tags:
       - kubernetes-setup
       
-# pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
+# pods are not scheduled on the master by default for security reasons,to schedule the pods on the master run 'kubectl --kubeconfig ./admin.conf taint nodes --all node-role.kubernetes.io/master-'
+# it used when we run one single node per cluster
 
-  - name: Debian | Schedule pods on the master
-    command: kubectl taint nodes --all dedicated-
+  - name: Schedule pods on the master
+    command: kubectl --kubeconfig ./admin.conf taint nodes --all node-role.kubernetes.io/master-
     tags:
       - kubernetes-setup
 
