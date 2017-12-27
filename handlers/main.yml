@@ -24,7 +24,7 @@
   shell: update-grub2
   
 - name: reload systemd
-  shell: systemctl restart kubelet
+  shell: systemctl daemon-reload
   
 - name: deploy network pod
   command: kubectl apply -f https://git.io/weave-kube
