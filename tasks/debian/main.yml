@@ -12,7 +12,7 @@
     apt_repository:  
       repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
       state: present
-      filename: "{{ kubernetes_debian_repositoy_filename }}"
+      filename: "{{ kubernetes_debian_repository_filename }}"
       
   - name: Debian | Install kubeadm and dependencies 
     apt:
@@ -29,7 +29,7 @@
       - start kubelet service
   - name: Modify variables in init file
     lineinfile:
-     dest: /etc/default/grup
+     dest: /etc/default/grub
      regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet'
      line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory"'
      state: present
