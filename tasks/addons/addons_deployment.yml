@@ -1,0 +1,5 @@
+  - name: set up prometheus and grafana pods
+    command: kubectl --kubeconfig ./admin.conf apply -f https://raw.githubusercontent.com/giantswarm/kubernetes-prometheus/master/manifests-all.yaml
+  - name: set up kubernetes Dashboard
+    command:  kubectl --kubeconfig ./admin.conf apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+

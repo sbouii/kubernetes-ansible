@@ -24,8 +24,3 @@
      notify:
        - start docker service
        - start kubelet service
-# pods are not scheduled on the master by default for security reasons, to schedule the pods on the master run 'kubectl taint nodes --all dedicated-'
-
-   - name: RedHat | Schedule pods on the master
-     command: kubectl taint nodes --all dedicated-
-

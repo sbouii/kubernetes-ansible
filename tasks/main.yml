@@ -25,7 +25,7 @@
   - name: deploy network pod
     command: kubectl --kubeconfig ./admin.conf apply -f https://git.io/weave-kube
 
-  - name: Deploy monitoring pods
-    include: "common/monitoring_deployment.yml"
+  - name: Deploy addons pods
+    include: "addons/addons_deployment.yml"
     tags:
       - kubernetes-config

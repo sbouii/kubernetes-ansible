@@ -20,6 +20,7 @@
      state: installed
      update_cache: yes
     with_items:
+      - docker.io
       - kubelet
       - kubeadm
       - kubectl
@@ -27,7 +28,7 @@
     notify: 
       - stop kubelet service
       - start kubelet service
-  - name: Modify variables in init file
+  - name: Debian | Enable cgroup 
     lineinfile:
      dest: /etc/default/grub
      regexp: '^GRUB_CMDLINE_LINUX_DEFAULT="quiet'
@@ -37,7 +38,7 @@
     notify:
       - update grub
       
-  - name: disable swap
+  - name: Debian | Disable swap
     shell: swapoff -a
     notify:
        - reload systemd

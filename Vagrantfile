@@ -3,7 +3,7 @@
 
 Vagrant.configure(2) do |config|
   
-   config.vm.box = "debian/jessie64"
+   config.vm.box = "ubuntu/trusty64"
   
    # Disable pushing updates to the box from people who have made this box 
    config.vm.box_check_update = false
