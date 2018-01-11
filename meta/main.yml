@@ -2,7 +2,7 @@ galaxy_info:
   author: Mariem Sbouii
   description: Set up a kubeadm master on several GNU/Linux servers and monitor its componments.
   license: MIT
-  min_ansible_version: 2.0
+  min_ansible_version: 2.3
   
   platforms:
     - name: Ubuntu
