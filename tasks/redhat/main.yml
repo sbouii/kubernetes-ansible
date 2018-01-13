@@ -1,4 +1,4 @@
-  - name: RedHat | kubernetes repository 
+  - name: RedHat | Add kubernetes repository 
     yum_repository:
       name: {{ kubernetes_redhat_repository_name }}
       description: {{ kubernetes_redhat_repository_description }}
