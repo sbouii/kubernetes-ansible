@@ -8,7 +8,7 @@
 This is an ansible role to set up a kubernetes master and monitor its componments on several GNU/Linux systems.
 
 Although there are many ansible roles for installing kubernetes even production-ready ones , this version is mine , created for specific need.Besides automating the installation of kubernetes using  **[Kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)** and deploying Grafana and Prometheus pods for monitoring the componments of the kubernetes master and the application running on it,
-it uses the infrastructure testing tool **[KitchenCi](http://kitchen.ci/)** to verify if the master is well setup and configured as expected.
+it uses the infrastructure testing tool **[KitchenCi](http://kitchen.ci/)** to verify if the master is well setup and configured as expected or not.
 
 ## Requirements
 
